@@ -25,4 +25,9 @@ public class BabysitterStart {
 		}
 	}
 
+	public static int BabysitterStartingHour(int startHour) {
+
+		return 5;
+	}
+
 }
