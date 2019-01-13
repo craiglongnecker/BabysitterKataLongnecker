@@ -11,7 +11,7 @@ public class BabysitterStart {
 	} // Close main.
 
 	public static String BabysitterName(String name) {
-		return "Julie";
+		return name;
 	}
 
 }

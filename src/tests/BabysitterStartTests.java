@@ -17,4 +17,8 @@ public class BabysitterStartTests {
 	public void isBabysittersNameJulie() {
 		assertEquals("Julie", BabysitterStart.BabysitterName("Julie"));
 	}
+	@Test
+	public void whatIsBabysittersName() {
+		assertEquals("Barb", BabysitterStart.BabysitterName("Barb"));
+	}
 }
