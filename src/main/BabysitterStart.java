@@ -16,7 +16,7 @@ public class BabysitterStart {
 		return name;
 	}
 
-	public static int BabysitterStartPMOrAM(int startPMAM) {
+	public static int BabysitterStartPMOrAM(Integer startPMAM) {
 		if(startPMAM == 1) {
 			return startAM;
 		}
@@ -25,9 +25,11 @@ public class BabysitterStart {
 		}
 	}
 
-	public static int BabysitterStartingHour(int startHour) {
-
-		return 5;
+	public static String BabysitterStartingHour(Integer startHour) {
+		if(startHour < 5) {
+			return "You cannot start babysitting before 5:00 PM.";
+		}
+		return startHour.toString();
 	}
 
 }

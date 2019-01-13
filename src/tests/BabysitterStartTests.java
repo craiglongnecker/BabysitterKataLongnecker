@@ -35,7 +35,12 @@ public class BabysitterStartTests {
 	
 	@Test
 	public void isTheBabysittersStartingHour5PMOrLater() {
-		assertEquals(5, BabysitterStart.BabysitterStartingHour(5));
+		assertEquals("5", BabysitterStart.BabysitterStartingHour(5));
+	}
+	
+	@Test
+	public void theBabysittersStartingHourCannotBeBefore5PM() {
+		assertEquals("You cannot start babysitting before 5:00 PM.", BabysitterStart.BabysitterStartingHour(4));
 	}
 
 }
