@@ -27,4 +27,9 @@ public class BabysitterStartTests {
 	public void isTheBabysittersStartTimeInThePM() {
 		assertEquals(0, BabysitterStart.BabysitterStartPMOrAM(0));
 	}
+	
+	@Test
+	public void isTheBabysittersStartTimeInTheAM() {
+		assertEquals(12, BabysitterStart.BabysitterStartPMOrAM(1));
+	}
 }

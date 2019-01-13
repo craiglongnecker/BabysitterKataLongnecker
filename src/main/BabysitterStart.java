@@ -9,14 +9,20 @@ public class BabysitterStart {
 		Scanner scanner = new Scanner(System.in);
 
 	} // Close main.
+	static int startPM = 0;
+	static int startAM = 12;
 
 	public static String BabysitterName(String name) {
 		return name;
 	}
 
-	public static Object BabysitterStartPMOrAM(int startAMPM) {
-
-		return 0;
+	public static int BabysitterStartPMOrAM(int startPMAM) {
+		if(startPMAM == 1) {
+			return startAM;
+		}
+		else {
+			return startPM;
+		}
 	}
 
 }
