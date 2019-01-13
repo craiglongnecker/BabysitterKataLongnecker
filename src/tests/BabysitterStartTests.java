@@ -17,8 +17,14 @@ public class BabysitterStartTests {
 	public void isBabysittersNameJulie() {
 		assertEquals("Julie", BabysitterStart.BabysitterName("Julie"));
 	}
+	
 	@Test
 	public void whatIsBabysittersName() {
 		assertEquals("Barb", BabysitterStart.BabysitterName("Barb"));
+	}
+	
+	@Test
+	public void isTheBabysittersStartTimeInThePM() {
+		assertEquals(0, BabysitterStart.BabysitterStartPMOrAM(0));
 	}
 }

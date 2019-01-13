@@ -14,4 +14,9 @@ public class BabysitterStart {
 		return name;
 	}
 
+	public static Object BabysitterStartPMOrAM(int startAMPM) {
+
+		return 0;
+	}
+
 }
