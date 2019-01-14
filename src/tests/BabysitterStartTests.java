@@ -108,4 +108,19 @@ public class BabysitterStartTests {
 		assertEquals("Error.", BabysitterStart.BabysitterEndingHour(2, 2));
 	}
 
+	@Test
+	public void theBabysittersEndingMinute() {
+		assertEquals("2", BabysitterStart.BabysitterEndingMinute(2));
+	}
+
+	@Test
+	public void theBabysittersEndingMinuteWithOver59MinutesError() {
+		assertEquals("Error.", BabysitterStart.BabysitterEndingMinute(60));
+	}
+
+	@Test
+	public void theBabysittersEndingMinuteWithNegativeMinutesError() {
+		assertEquals("Error.", BabysitterStart.BabysitterEndingMinute(-5));
+	}
+
 }

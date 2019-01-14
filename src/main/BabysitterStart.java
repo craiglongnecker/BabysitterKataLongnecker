@@ -75,4 +75,13 @@ public class BabysitterStart {
 		}
 	}
 
+	public static String BabysitterEndingMinute(Integer endMinute) {
+		if(endMinute >= 0 && endMinute < 60) {
+			return endMinute.toString();
+		}
+		else {
+			return "Error.";
+		}
+	}
+
 }
