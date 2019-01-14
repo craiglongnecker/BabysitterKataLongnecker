@@ -72,5 +72,40 @@ public class BabysitterStartTests {
 	public void theBabysittersStartingMinuteWithNegativeMinutesError() {
 		assertEquals("Error.", BabysitterStart.BabysitterStartingMinute(-5));
 	}
+	
+	@Test
+	public void isTheBabysittersEndingHour4AMOrEarlier() {
+		assertEquals("16", BabysitterStart.BabysitterEndingHour(1, 4));
+	}
+
+	@Test
+	public void theBabysittersEndingHourCannotBeBefore5PM() {
+		assertEquals("You cannot end babysitting during this time.", BabysitterStart.BabysitterEndingHour(0, 4));
+	}
+	
+	@Test
+	public void isTheBabysittersEndingHourBeforeMidnightOrEarlier() {
+		assertEquals("10", BabysitterStart.BabysitterEndingHour(0, 10));
+	}
+	
+	@Test
+	public void theBabysittersEndingHourCannotBeAfter4AM() {
+		assertEquals("You cannot end babysitting during this time.", BabysitterStart.BabysitterEndingHour(1, 5));
+	}
+	
+	@Test
+	public void theBabysittersEndingHourWhenAnErrorForHourIsANegativeInteger() {
+		assertEquals("Error.", BabysitterStart.BabysitterEndingHour(1, -2));
+	}
+	
+	@Test
+	public void theBabysittersEndingHourWHenAnErrorForHourIsGreaterThan11() {
+		assertEquals("Error.", BabysitterStart.BabysitterEndingHour(1, 12));
+	}
+
+	@Test
+	public void theBabysittersEndingHourWithAnErrorForPMOrAM() {
+		assertEquals("Error.", BabysitterStart.BabysitterEndingHour(2, 2));
+	}
 
 }

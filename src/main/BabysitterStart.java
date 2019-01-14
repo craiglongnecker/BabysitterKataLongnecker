@@ -11,6 +11,8 @@ public class BabysitterStart {
 	} // Close main.
 	static int startPM = 0;
 	static int startAM = 12;
+	static int endPM = 0;
+	static int endAM = 12;
 
 	public static String BabysitterName(String name) {
 		return name;
@@ -43,6 +45,30 @@ public class BabysitterStart {
 	public static String BabysitterStartingMinute(Integer startMinute) {
 		if(startMinute >= 0 && startMinute < 60) {
 			return startMinute.toString();
+		}
+		else {
+			return "Error.";
+		}
+	}
+
+	public static String BabysitterEndingHour(Integer endPMAM, Integer endHour) {
+		if(endPMAM == 0 && endHour >= 0 && endHour <= 11) { // 0 in PM is noon.
+			if((endPM + endHour) < 5) {	
+				return "You cannot end babysitting during this time.";
+			}
+			else {
+				endHour += endPM;
+				return endHour.toString();
+			}
+		}
+		else if(endPMAM == 1 && endHour >= 0 && endHour <= 11) { // 0 in AM is midnight.
+			if((endAM + endHour) > 16) {
+				return "You cannot end babysitting during this time.";
+			}
+			else{
+				endHour += endAM;
+				return endHour.toString();
+			}
 		}
 		else {
 			return "Error.";
