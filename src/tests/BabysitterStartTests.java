@@ -123,4 +123,19 @@ public class BabysitterStartTests {
 		assertEquals("Error.", BabysitterStart.BabysitterEndingMinute(-5));
 	}
 
+	@Test
+	public void verifyTheBabysittersEndingTimeIsNotBeforeStartingTime() {
+		assertEquals("495", BabysitterStart.BabysitterTotalMinutesBabysitting(5, 30, 13, 45));
+	}
+
+	@Test
+	public void verifyTheBabysittersEndingTimeIsSameAsOrBeforeStartingTime() {
+		assertEquals("Error. Babysitting ending time cannot be the same as or before the starting time.", BabysitterStart.BabysitterTotalMinutesBabysitting(5, 30, 5, 30));
+	}
+
+	@Test
+	public void verifyTheBabysittersEndingTimeIsLessThan60MinutesBeforeStartingTime() {
+		assertEquals("You must babysit for at least one hour to get paid.", BabysitterStart.BabysitterTotalMinutesBabysitting(5, 30, 6, 29));
+	}
+
 }

@@ -84,4 +84,17 @@ public class BabysitterStart {
 		}
 	}
 
+	public static String BabysitterTotalMinutesBabysitting(Integer startHour, Integer startMinute, Integer endHour, Integer endMinute) {
+		Integer totalStartMinutes = (startHour * 60) + startMinute;
+		Integer totalEndMinutes = (endHour *60) + endMinute;
+		Integer totalMinutes = totalEndMinutes - totalStartMinutes;
+		if(totalEndMinutes <= totalStartMinutes) {
+			return "Error. Babysitting ending time cannot be the same as or before the starting time.";
+		}
+		else if (totalMinutes < 60) {
+			return "You must babysit for at least one hour to get paid.";
+		}
+		return totalMinutes.toString();
+	}
+
 }
