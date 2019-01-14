@@ -60,7 +60,17 @@ public class BabysitterStartTests {
 
 	@Test
 	public void theBabysittersStartingMinute() {
-		assertEquals(2, BabysitterStart.BabysitterStartingMinute(2));
+		assertEquals("2", BabysitterStart.BabysitterStartingMinute(2));
+	}
+
+	@Test
+	public void theBabysittersStartingMinuteWithOver59MinutesError() {
+		assertEquals("Error.", BabysitterStart.BabysitterStartingMinute(60));
+	}
+
+	@Test
+	public void theBabysittersStartingMinuteWithNegativeMinutesError() {
+		assertEquals("Error.", BabysitterStart.BabysitterStartingMinute(-5));
 	}
 
 }

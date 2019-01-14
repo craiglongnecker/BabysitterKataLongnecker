@@ -40,8 +40,13 @@ public class BabysitterStart {
 		}
 	}
 
-	public static int BabysitterStartingMinute(int startMinute) {
-		return 2;
+	public static String BabysitterStartingMinute(Integer startMinute) {
+		if(startMinute >= 0 && startMinute < 60) {
+			return startMinute.toString();
+		}
+		else {
+			return "Error.";
+		}
 	}
 
 }
