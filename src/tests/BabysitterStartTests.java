@@ -24,23 +24,38 @@ public class BabysitterStartTests {
 	}
 	
 	@Test
-	public void isTheBabysittersStartTimeInThePM() {
-		assertEquals(0, BabysitterStart.BabysitterStartPMOrAM(0));
-	}
-	
-	@Test
-	public void isTheBabysittersStartTimeInTheAM() {
-		assertEquals(12, BabysitterStart.BabysitterStartPMOrAM(1));
-	}
-	
-	@Test
 	public void isTheBabysittersStartingHour5PMOrLater() {
-		assertEquals("5", BabysitterStart.BabysitterStartingHour(5));
+		assertEquals("5", BabysitterStart.BabysitterStartingHour(0, 5));
 	}
-	
+
 	@Test
 	public void theBabysittersStartingHourCannotBeBefore5PM() {
-		assertEquals("You cannot start babysitting before 5:00 PM.", BabysitterStart.BabysitterStartingHour(4));
+		assertEquals("You cannot start babysitting before 5:00 PM.", BabysitterStart.BabysitterStartingHour(0, 4));
+	}
+	
+	@Test
+	public void isTheBabysittersStartingHourBefore4AMOrEarlier() {
+		assertEquals("12", BabysitterStart.BabysitterStartingHour(1, 0));
+	}
+	
+	@Test
+	public void theBabysittersStartingHourCannotBeAfter4AM() {
+		assertEquals("You cannot start babysitting after 4:00 AM.", BabysitterStart.BabysitterStartingHour(1, 5));
+	}
+	
+	@Test
+	public void theBabysittersStartingHourWhenAnErrorForHourIsANegativeInteger() {
+		assertEquals("Error.", BabysitterStart.BabysitterStartingHour(1, -2));
+	}
+	
+	@Test
+	public void theBabysittersStartingHourWHenAnErrorForHourIsGreaterThan11() {
+		assertEquals("Error.", BabysitterStart.BabysitterStartingHour(1, 12));
+	}
+
+	@Test
+	public void theBabysittersStartingHourWithAnErrorForPMOrAM() {
+		assertEquals("Error.", BabysitterStart.BabysitterStartingHour(2, 2));
 	}
 
 }

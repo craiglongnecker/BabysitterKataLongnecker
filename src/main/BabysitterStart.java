@@ -16,20 +16,28 @@ public class BabysitterStart {
 		return name;
 	}
 
-	public static int BabysitterStartPMOrAM(Integer startPMAM) {
-		if(startPMAM == 1) {
-			return startAM;
+	public static String BabysitterStartingHour(Integer startPMAM, Integer startHour) {
+		if(startPMAM == 0 && startHour >= 0 && startHour <= 11) { // 0 in PM is noon.
+			if((startPM + startHour) < 5) {	
+				return "You cannot start babysitting before 5:00 PM.";
+			}
+			else {
+				startHour += startPM;
+				return startHour.toString();
+			}
+		}
+		else if(startPMAM == 1 && startHour >= 0 && startHour <= 11) { // 0 in AM is midnight.
+			if((startAM + startHour) > 16) {
+				return "You cannot start babysitting after 4:00 AM.";
+			}
+			else{
+				startHour += startAM;
+				return startHour.toString();
+			}
 		}
 		else {
-			return startPM;
+			return "Error.";
 		}
-	}
-
-	public static String BabysitterStartingHour(Integer startHour) {
-		if(startHour < 5) {
-			return "You cannot start babysitting before 5:00 PM.";
-		}
-		return startHour.toString();
 	}
 
 }
