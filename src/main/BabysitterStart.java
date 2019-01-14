@@ -40,4 +40,8 @@ public class BabysitterStart {
 		}
 	}
 
+	public static int BabysitterStartingMinute(int startMinute) {
+		return 2;
+	}
+
 }
