@@ -18,4 +18,14 @@ public class FamiliesTests {
 		assertEquals("A", Families.SelectFamily("A"));
 	}
 
+	@Test
+	public void IsFamilyBSelected() {
+		assertEquals("B", Families.SelectFamily("B"));
+	}
+
+	@Test
+	public void IsFamilyCSelected() {
+		assertEquals("C", Families.SelectFamily("C"));
+	}
+
 }
