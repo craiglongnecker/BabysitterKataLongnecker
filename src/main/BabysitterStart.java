@@ -1,18 +1,12 @@
 package main;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 public class BabysitterStart {
 
-	public static void main(String[] args) throws IOException { // Begin main.
-		Scanner scanner = new Scanner(System.in);
-
-	} // Close main.
 	static int startPM = 0;
 	static int startAM = 12;
 	static int endPM = 0;
 	static int endAM = 12;
+	static int hour = 60;
 
 	public static String BabysitterName(String name) {
 		return name;
@@ -43,8 +37,9 @@ public class BabysitterStart {
 	}
 
 	public static String BabysitterStartingMinute(Integer startMinute) {
-		if(startMinute >= 0 && startMinute < 60) {
-			return startMinute.toString();
+		if(startMinute >= 0 && startMinute < hour) {
+			String startMin = String.format("%02d", startMinute);
+			return startMin.toString();
 		}
 		else {
 			return "Error.";
@@ -76,7 +71,7 @@ public class BabysitterStart {
 	}
 
 	public static String BabysitterEndingMinute(Integer endMinute) {
-		if(endMinute >= 0 && endMinute < 60) {
+		if(endMinute >= 0 && endMinute < hour) {
 			return endMinute.toString();
 		}
 		else {
@@ -85,16 +80,18 @@ public class BabysitterStart {
 	}
 
 	public static String BabysitterTotalMinutesBabysitting(Integer startHour, Integer startMinute, Integer endHour, Integer endMinute) {
-		Integer totalStartMinutes = (startHour * 60) + startMinute;
-		Integer totalEndMinutes = (endHour *60) + endMinute;
+		Integer totalStartMinutes = (startHour * hour) + startMinute;
+		Integer totalEndMinutes = (endHour * hour) + endMinute;
 		Integer totalMinutes = totalEndMinutes - totalStartMinutes;
 		if(totalEndMinutes <= totalStartMinutes) {
 			return "Error. Babysitting ending time cannot be the same as or before the starting time.";
 		}
-		else if (totalMinutes < 60) {
+		else if (totalMinutes < hour) {
 			return "You must babysit for at least one hour to get paid.";
 		}
-		return totalMinutes.toString();
+		else {
+			return totalMinutes.toString();
+		}
 	}
 
 }

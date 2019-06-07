@@ -60,7 +60,7 @@ public class BabysitterStartTests {
 
 	@Test
 	public void theBabysittersStartingMinute() {
-		assertEquals("2", BabysitterStart.BabysitterStartingMinute(2));
+		assertEquals("02", BabysitterStart.BabysitterStartingMinute(2));
 	}
 
 	@Test
