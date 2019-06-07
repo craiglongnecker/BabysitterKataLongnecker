@@ -27,5 +27,9 @@ public class FamiliesTests {
 	public void IsFamilyCSelected() {
 		assertEquals("C", Families.SelectFamily("C"));
 	}
+	@Test
+	public void IsFamilyOtherThanABorCSelected() {
+		assertEquals("Please select Family A, B, or C only.", Families.SelectFamily("D"));
+	}
 
 }
