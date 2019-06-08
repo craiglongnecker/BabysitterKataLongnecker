@@ -32,8 +32,8 @@ public class FamiliesTests {
 	}
 	@Test
 	public void IsFamilyOtherThanABorCSelected() {
-		assertEquals("Please select Family A, B, or C only.", Families.SelectFamily("D"));
-		assertEquals("Please select Family A, B, or C only.", Families.SelectFamily("d"));
+		assertEquals("Please select Family 'A', 'B', or 'C' only, or 'X' to exit.", Families.SelectFamily("D"));
+		assertEquals("Please select Family 'A', 'B', or 'C' only, or 'X' to exit.", Families.SelectFamily("d"));
 	}
 
 }
