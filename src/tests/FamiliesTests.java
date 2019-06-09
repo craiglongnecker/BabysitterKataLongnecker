@@ -12,28 +12,41 @@ public class FamiliesTests {
 	@Before
 	public void setUp() throws Exception {
 	}
+	
+	@Test
+	public void FamiliesDefaultConstructorWorks1() {
+		Families testFamily = new Families();
+		assertEquals(null, testFamily.getFamily());
+	}
 
 	@Test
-	public void IsFamilyASelected() {
+	public void IsFamilyASelected2() {
 		assertEquals("A", Families.SelectFamily("A"));
-		assertEquals("a", Families.SelectFamily("a"));
+		assertEquals("A", Families.SelectFamily("a"));
 	}
 
 	@Test
-	public void IsFamilyBSelected() {
+	public void IsFamilyBSelected3() {
 		assertEquals("B", Families.SelectFamily("B"));
-		assertEquals("b", Families.SelectFamily("b"));
+		assertEquals("B", Families.SelectFamily("b"));
 	}
 
 	@Test
-	public void IsFamilyCSelected() {
+	public void IsFamilyCSelected4() {
 		assertEquals("C", Families.SelectFamily("C"));
-		assertEquals("c", Families.SelectFamily("c"));
+		assertEquals("C", Families.SelectFamily("c"));
 	}
+
 	@Test
-	public void IsFamilyOtherThanABorCSelected() {
+	public void IsExitSelected5() {
+		assertEquals("X", Families.SelectFamily("X"));
+		assertEquals("X", Families.SelectFamily("x"));
+	}
+	
+	@Test
+	public void IsFamilyOtherThanABorCorExitSelectedLetter6() {
 		assertEquals("Please select Family 'A', 'B', or 'C' only, or 'X' to exit.", Families.SelectFamily("D"));
-		assertEquals("Please select Family 'A', 'B', or 'C' only, or 'X' to exit.", Families.SelectFamily("d"));
+		assertEquals("Please select Family 'A', 'B', or 'C' only, or 'X' to exit.", Families.SelectFamily("Exit"));
 	}
 
 }

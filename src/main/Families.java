@@ -1,6 +1,15 @@
 package main;
 
 public class Families {
+	private String family;
+	
+	public Families() { // Begin Constructor.
+		this.family = null;
+	} // Close Constructor.
+	
+	public String getFamily() {
+		return family;
+	}
 
 	public static String SelectFamily(String family) {
 //		if(family == "A" || family == "a"){
@@ -16,28 +25,39 @@ public class Families {
 //			return "Please select Family A, B, or C only.";
 //		}
 		while(true) {
+			family = family.toUpperCase();
 			switch(family) {
 			case "A":
-				break;
-			case "a":
-				break;
+				return "A";
+//				FamilyACalculation();
+//				break;
 			case "B":
-				break;
-			case "b":
-				break;
+				return "B";
+//				FamilyBCalculation();
+//				break;
 			case "C":
-				break;
-			case "c":
-				break;
+				return "C";
+//				FamilyCCalculation();
+//				break;
 			case "X":
-				System.exit(0);
-				break;
-			case "x":
-				System.exit(0);
-				break;
+				return "X";
+//				System.exit(0);
+//				break;
 			default:
-				System.out.println("Please select Family 'A', 'B', or 'C' only, or 'X' to exit.");
+				return "Please select Family 'A', 'B', or 'C' only, or 'X' to exit.";
 			}
 		}
+	}
+	
+	public static void FamilyACalculation() {
+		
+	}
+	
+	public static void FamilyBCalculation() {
+		
+	}
+	
+	public static void FamilyCCalculation() {
+		
 	}
 }

@@ -20,6 +20,7 @@ public class BabysitterStart {
 			else {
 				startHour += startPM;
 				return startHour.toString();
+//				return startHour;
 			}
 		}
 		else if(startPMAM == 1 && startHour >= 0 && startHour <= 11) { // 0 in AM is midnight.
@@ -29,6 +30,7 @@ public class BabysitterStart {
 			else{
 				startHour += startAM;
 				return startHour.toString();
+//				return startHour;
 			}
 		}
 		else {
