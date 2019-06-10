@@ -152,6 +152,32 @@ public class Families {
 				return familyBTotalPay;
 			}
 		}
+		
+		else if(finalStartHour >= familyBBefore10PM && finalStartHour < familyBBeforeMidnight && finalStartMinute >= minutes0 && finalEndMinute == minutes0) {
+			if(familyBBeforeMidnight > finalStartHour && familyBBeforeMidnight > finalEndHour) {
+				int payBeforeMidnight = (familyBBeforeMidnight - finalEndHour) * familyB8Dollars;
+				int familyBTotalPay = payBeforeMidnight;
+				return familyBTotalPay;
+			}
+			else {
+				int payBeforeMidnight = (familyBBeforeMidnight - finalStartHour) * familyB8Dollars;
+				int payBefore4AM = (finalEndHour - familyBBeforeMidnight) * familyB16Dollars;
+				int familyBTotalPay = payBeforeMidnight + payBefore4AM;
+				return familyBTotalPay;
+			}
+		}
+		
+		else if(finalStartHour >= familyBBeforeMidnight && finalStartMinute >= minutes0 && finalEndMinute > minutes0) {
+			int payBefore4AM = ((finalEndHour - familyBBeforeMidnight) + fullHour) * familyB16Dollars;
+			int familyBTotalPay = payBefore4AM;
+			return familyBTotalPay;
+			}
+		
+		else if(finalStartHour >= familyBBeforeMidnight && finalStartMinute >= minutes0 && finalEndMinute == minutes0) {
+			int payBefore4AM = (finalEndHour - familyBBeforeMidnight) * familyB16Dollars;
+			int familyBTotalPay = payBefore4AM;
+			return familyBTotalPay;
+			}
 
 		else {
 			return 0;

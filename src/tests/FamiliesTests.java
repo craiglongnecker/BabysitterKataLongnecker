@@ -143,23 +143,40 @@ public class FamiliesTests {
 		assertTrue(72 == Families.FamilyBCalculation("11", "45", "15", "55"));
 	}
 	
-//	@Test
-//	public void FamilyCTotalPayStartingAt5PM_19() {
-//		assertTrue(189 == Families.FamilyCCalculation("5", "0", "15", "55"));
-//	}
-//	
-//	@Test
-//	public void FamilyCTotalPayStartingAt9PM_20() {
-//		assertTrue(90 == Families.FamilyCCalculation("9", "0", "15", "0"));
-//	}
-//	
-//	@Test
-//	public void FamilyCStringsToIntegers_14() {
-//		assertEquals(8, 8, Families.FamilyCCalculation("8", "45", "15", "55"));
-//		assertEquals(45, 45, Families.FamilyCCalculation("8", "45", "15", "55"));
-//		assertEquals(15, 15, Families.FamilyCCalculation("8", "45", "15", "55"));
-//		assertEquals(55, 55, Families.FamilyCCalculation("8", "45", "15", "55"));
-//		}
+	@Test
+	public void FamilyBTotalPayStartingAfter10PMAndBeforeMidnightAndEndingIn0Minutes_20() {
+		assertTrue(8 == Families.FamilyBCalculation("10", "15", "11", "0"));
+		assertTrue(56 == Families.FamilyBCalculation("11", "45", "15", "0"));
+	}
+	
+	@Test
+	public void FamilyBTotalPayStartingAfterMidnight_21() {
+		assertTrue(64 == Families.FamilyBCalculation("12", "45", "15", "55"));
+		assertTrue(64 == Families.FamilyBCalculation("12", "1", "16", "0"));
+	}
+	
+	@Test
+	public void FamilyBTotalPayStartingAt5PM_22() {
+		assertTrue(140 == Families.FamilyBCalculation("5", "0", "15", "55"));
+	}
+	
+	@Test
+	public void FamilyBTotalPayStartingAt10PM_23() {
+		assertTrue(64 == Families.FamilyBCalculation("10", "0", "15", "0"));
+	}
+	
+	@Test
+	public void FamilyBTotalPayStartingAtMidnight_24() {
+		assertTrue(48 == Families.FamilyBCalculation("12", "0", "15", "0"));
+	}
+	
+	@Test
+	public void FamilyCStringsToIntegers_14() {
+		assertEquals(8, 8, Families.FamilyCCalculation("8", "45", "15", "55"));
+		assertEquals(45, 45, Families.FamilyCCalculation("8", "45", "15", "55"));
+		assertEquals(15, 15, Families.FamilyCCalculation("8", "45", "15", "55"));
+		assertEquals(55, 55, Families.FamilyCCalculation("8", "45", "15", "55"));
+		}
 
 	@Test
 	public void FamilyCIsStartingHourBefore9PM_15() {
