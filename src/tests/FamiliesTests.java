@@ -96,12 +96,70 @@ public class FamiliesTests {
 	}
 	
 	@Test
-	public void FamilyCStringsToIntegers_14() {
-		assertEquals(8, 8, Families.FamilyCCalculation("8", "45", "15", "55"));
-		assertEquals(45, 45, Families.FamilyCCalculation("8", "45", "15", "55"));
-		assertEquals(15, 15, Families.FamilyCCalculation("8", "45", "15", "55"));
-		assertEquals(55, 55, Families.FamilyCCalculation("8", "45", "15", "55"));
+	public void FamilyBStringsToIntegers_14() {
+		assertEquals(8, 8, Families.FamilyBCalculation("8", "45", "15", "55"));
+		assertEquals(45, 45, Families.FamilyBCalculation("8", "45", "15", "55"));
+		assertEquals(15, 15, Families.FamilyBCalculation("8", "45", "15", "55"));
+		assertEquals(55, 55, Families.FamilyBCalculation("8", "45", "15", "55"));
 		}
+
+	@Test
+	public void FamilyBIsStartingHourBefore10PM_15() {
+		assertEquals(9, 9, Families.FamilyBCalculation("9", "45", "15", "55"));
+		}
+
+	@Test
+	public void FamilyBIsStartingHourBeforeMidnight_16() {
+		assertEquals(11, 11, Families.FamilyBCalculation("12", "45", "15", "55"));
+		}
+
+	@Test
+	public void FamilyBIsStartingHourAfterMidnight_17() {
+		assertEquals(12, 12, Families.FamilyBCalculation("12", "45", "15", "55"));
+		assertEquals(45, 45, Families.FamilyBCalculation("12", "45", "15", "55"));
+		}
+	
+	@Test
+	public void FamilyBPayBefore10PM_16() {
+		assertEquals(92, 92, Families.FamilyBCalculation("8", "45", "15", "55"));
+		assertEquals(76, 76, Families.FamilyBCalculation("5", "45", "11", "55"));
+	}
+	
+	@Test
+	public void FamilyBTotalPayStartingBefore10PM_17() {
+		assertTrue(104 == Families.FamilyBCalculation("8", "45", "15", "55"));
+		assertTrue(76 == Families.FamilyBCalculation("5", "45", "11", "55"));
+		assertTrue(100 == Families.FamilyBCalculation("7", "45", "14", "1"));
+	}
+	@Test
+	public void FamilyBTotalPayStartingBefore10PMAndEndingIn0Minutes_18() {
+		assertTrue(104 == Families.FamilyBCalculation("8", "45", "16", "0"));
+		assertTrue(68 == Families.FamilyBCalculation("5", "45", "11", "0"));
+	}
+	
+	@Test
+	public void FamilyBTotalPayStartingAfter10PMAndBeforeMidnight_19() {
+		assertTrue(16 == Families.FamilyBCalculation("10", "15", "11", "55"));
+		assertTrue(72 == Families.FamilyBCalculation("11", "45", "15", "55"));
+	}
+	
+//	@Test
+//	public void FamilyCTotalPayStartingAt5PM_19() {
+//		assertTrue(189 == Families.FamilyCCalculation("5", "0", "15", "55"));
+//	}
+//	
+//	@Test
+//	public void FamilyCTotalPayStartingAt9PM_20() {
+//		assertTrue(90 == Families.FamilyCCalculation("9", "0", "15", "0"));
+//	}
+//	
+//	@Test
+//	public void FamilyCStringsToIntegers_14() {
+//		assertEquals(8, 8, Families.FamilyCCalculation("8", "45", "15", "55"));
+//		assertEquals(45, 45, Families.FamilyCCalculation("8", "45", "15", "55"));
+//		assertEquals(15, 15, Families.FamilyCCalculation("8", "45", "15", "55"));
+//		assertEquals(55, 55, Families.FamilyCCalculation("8", "45", "15", "55"));
+//		}
 
 	@Test
 	public void FamilyCIsStartingHourBefore9PM_15() {

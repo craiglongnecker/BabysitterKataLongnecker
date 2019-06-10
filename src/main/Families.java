@@ -3,9 +3,14 @@ package main;
 public class Families {
 	private String family;
 	private static final int familyABefore11PM = 11;
+	private static final int familyBBefore10PM = 10;
+	private static final int familyBBeforeMidnight = 12;
 	private static final int familyCBefore9PM = 9;
 	private static final int familyA15Dollars = 15;
 	private static final int familyA20Dollars = 20;
+	private static final int familyB12Dollars = 12;
+	private static final int familyB8Dollars = 8;
+	private static final int familyB16Dollars = 16;
 	private static final int familyC21Dollars = 21;
 	private static final int familyC15Dollars = 15;
 	private static final int minutes0 = 0;
@@ -99,7 +104,58 @@ public class Families {
 	}
 	
 	public static Integer FamilyBCalculation(String startHour, String startMinute, String endHour, String endMinute) {
-		return 0;
+		int finalStartHour = Integer.parseInt(startHour);
+		int finalStartMinute = Integer.parseInt(startMinute);
+		int finalEndHour = Integer.parseInt(endHour);
+		int finalEndMinute = Integer.parseInt(endMinute);
+		
+		if(finalStartHour < familyBBefore10PM && finalStartMinute >= minutes0 && finalEndMinute > minutes0) {
+			int payBefore10PM = (familyBBefore10PM - finalStartHour) * familyB12Dollars;
+			if(familyBBeforeMidnight > finalEndHour) {
+				int payBeforeMidnight = ((familyBBeforeMidnight - finalEndHour) + fullHour) * familyB8Dollars;
+				int familyBTotalPay = payBefore10PM + payBeforeMidnight;
+				return familyBTotalPay;
+			}
+			else {
+				int payBeforeMidnight = familyB16Dollars;
+				int payBefore4AM = ((finalEndHour + fullHour) - familyBBeforeMidnight) * familyB16Dollars;
+				int familyBTotalPay = payBefore10PM + payBeforeMidnight + payBefore4AM;
+				return familyBTotalPay;
+			}
+		}
+		
+		else if(finalStartHour < familyBBefore10PM && finalStartMinute >= minutes0 && finalEndMinute == minutes0) {
+			int payBefore10PM = (familyBBefore10PM - finalStartHour) * familyB12Dollars;
+			if(familyBBeforeMidnight > finalEndHour) {
+				int payBeforeMidnight = (familyBBeforeMidnight - finalEndHour) * familyB8Dollars;
+				int familyBTotalPay = payBefore10PM + payBeforeMidnight;
+				return familyBTotalPay;
+			}
+			else {
+				int payBeforeMidnight = familyB16Dollars;
+				int payBefore4AM = (finalEndHour - familyBBeforeMidnight) * familyB16Dollars;
+				int familyBTotalPay = payBefore10PM + payBeforeMidnight + payBefore4AM;
+				return familyBTotalPay;
+			}
+		}
+		
+		else if(finalStartHour >= familyBBefore10PM && finalStartHour < familyBBeforeMidnight && finalStartMinute >= minutes0 && finalEndMinute > minutes0) {
+			if(familyBBeforeMidnight > finalStartHour && familyBBeforeMidnight > finalEndHour) {
+				int payBeforeMidnight = ((familyBBeforeMidnight - finalEndHour) + fullHour) * familyB8Dollars;
+				int familyBTotalPay = payBeforeMidnight;
+				return familyBTotalPay;
+			}
+			else {
+				int payBeforeMidnight = (familyBBeforeMidnight - finalStartHour) * familyB8Dollars;
+				int payBefore4AM = ((finalEndHour - familyBBeforeMidnight) + fullHour) * familyB16Dollars;
+				int familyBTotalPay = payBeforeMidnight + payBefore4AM;
+				return familyBTotalPay;
+			}
+		}
+
+		else {
+			return 0;
+		}
 	}
 	
 	public static Integer FamilyCCalculation(String startHour, String startMinute, String endHour, String endMinute) {
