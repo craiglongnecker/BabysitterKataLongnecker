@@ -3,11 +3,13 @@ package main;
 public class Families {
 	private String family;
 	private static final int familyABefore11PM = 11;
+	private static final int familyCBefore9PM = 9;
 	private static final int familyA15Dollars = 15;
 	private static final int familyA20Dollars = 20;
+	private static final int familyC21Dollars = 21;
+	private static final int familyC15Dollars = 15;
 	private static final int minutes0 = 0;
 	private static final int fullHour = 1;
-	private static final int startAt5PM = 5;
 	
 	public Families() { // Begin Constructor.
 		this.family = null;
@@ -96,11 +98,44 @@ public class Families {
 		}
 	}
 	
-	public static void FamilyBCalculation(String startHour, String startMinute, String endHour, String endMinute) {
-		
+	public static Integer FamilyBCalculation(String startHour, String startMinute, String endHour, String endMinute) {
+		return 0;
 	}
 	
-	public static void FamilyCCalculation(String startHour, String startMinute, String endHour, String endMinute) {
+	public static Integer FamilyCCalculation(String startHour, String startMinute, String endHour, String endMinute) {
+		int finalStartHour = Integer.parseInt(startHour);
+		int finalStartMinute = Integer.parseInt(startMinute);
+		int finalEndHour = Integer.parseInt(endHour);
+		int finalEndMinute = Integer.parseInt(endMinute);
 		
+		if(finalStartHour < familyCBefore9PM && finalStartMinute >= minutes0 && finalEndMinute > minutes0) {
+			int payBefore9PM = (familyCBefore9PM - finalStartHour) * familyC21Dollars;
+			int payBefore4AM = ((finalEndHour + fullHour) - familyCBefore9PM) * familyC15Dollars;
+			int familyCTotalPay = payBefore9PM + payBefore4AM;
+			return familyCTotalPay;
+		}
+		
+		else if(finalStartHour < familyCBefore9PM && finalStartMinute >= minutes0 && finalEndMinute == minutes0) {
+			int payBefore9PM = (familyCBefore9PM - finalStartHour) * familyC21Dollars;
+			int payBefore4AM = (finalEndHour - familyCBefore9PM) * familyC15Dollars;
+			int familyCTotalPay = payBefore9PM + payBefore4AM;
+			return familyCTotalPay;
+		}
+
+		else if(finalStartHour >= familyCBefore9PM && finalStartMinute >= minutes0 && finalEndMinute > minutes0) {
+			int payBefore4AM = ((finalEndHour + fullHour) - finalStartHour) * familyC15Dollars;
+			int familyATotalPay = payBefore4AM;
+			return familyATotalPay;
+		}
+
+		else if(finalStartHour >= familyCBefore9PM && finalStartMinute >= minutes0 && finalEndMinute == minutes0) {
+			int payBefore4AM = (finalEndHour - finalStartHour) * familyC15Dollars;
+			int familyATotalPay = payBefore4AM;
+			return familyATotalPay;
+		}
+		
+		else {
+			return 0;
+		}
 	}
 }
