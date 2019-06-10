@@ -1,14 +1,18 @@
 package main;
 
 public class BabysitterStart {
-
+	private String name;
 	private static final int startPM = 0;
 	private static final int startAM = 12;
 	private static final int endPM = 0;
 	private static final int endAM = 12;
 	private static final int hour = 60;
 
-	public static String BabysitterName(String name) {
+	public BabysitterStart() {
+		this.name = null;
+	}
+	
+	public String getName() {
 		return name;
 	}
 

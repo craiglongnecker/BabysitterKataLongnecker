@@ -39,23 +39,20 @@ public class Families {
 //		}
 		while(true) {
 			family = family.toUpperCase();
+			String startHour = null;
+			String startMinute = null;
+			String endHour = null;
+			String endMinute = null;
 			switch(family) {
 			case "A":
-				String startHour = null;
-				String startMinute = null;
-				String endHour = null;
-				String endMinute = null;
-				//				return "A";
 				FamilyACalculation(startHour, startMinute, endHour, endMinute);
-				break;
+				return "A";
 			case "B":
-				return "B";
-//				FamilyBCalculation();
-//				break;
+				FamilyBCalculation(startHour, startMinute, endHour, endMinute);
+				return "Family B";
 			case "C":
-				return "C";
-//				FamilyCCalculation();
-//				break;
+				FamilyCCalculation(startHour, startMinute, endHour, endMinute);
+				return "Family C";
 			case "X":
 				return "X";
 //				System.exit(0);
