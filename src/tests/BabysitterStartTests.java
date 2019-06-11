@@ -20,10 +20,11 @@ public class BabysitterStartTests {
 	}
 	
 //	@Test
-//	public void whatIsBabysittersName_2() {
-//		assertEquals("Barb", BabysitterStart.BabysitterName("Barb"));
+//	public void isBabysittersNameSetToBarb_2() {
+//		BabysitterStart testBabysitterName = new BabysitterStart();
+//		assertEquals("Barb", testBabysitterName.setName("Barb"));
 //	}
-	
+
 	@Test
 	public void isTheBabysittersStartingHour5PMOrLater_3() {
 		assertEquals("5", BabysitterStart.BabysitterStartingHour(0, 5));
