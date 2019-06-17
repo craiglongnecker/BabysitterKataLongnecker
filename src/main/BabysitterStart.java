@@ -13,22 +13,14 @@ public class BabysitterStart {
 	private static final int ELEVEN = 11;
 	private static final int SIXTEEN = 16;
 
-	public BabysitterStart() {
-		this.name = null;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public BabysitterStart() {
+//		this.name = null;
+//	}
 
 	public static String BabysitterStartingHour(Integer startPMAM, Integer startHour) {
 		if(startPMAM == ZERO && startHour >= ZERO && startHour <= ELEVEN) { // ZERO(0) in PM is noon.
 			if((STARTPM + startHour) < FIVE) {	
-				return "You cannot start babysitting before 5:00 PM.";
+				return "an Error.  Try again.";
 			}
 			else {
 				startHour += STARTPM;
@@ -37,7 +29,7 @@ public class BabysitterStart {
 		}
 		else if(startPMAM == ONE && startHour >= ZERO && startHour <= ELEVEN) { // ZERO(0) in AM is midnight.
 			if((STARTAM + startHour) > SIXTEEN) {
-				return "You cannot start babysitting after 4:00 AM.";
+				return "an Error.  Try again.";
 			}
 			else{
 				startHour += STARTAM;
@@ -45,7 +37,7 @@ public class BabysitterStart {
 			}
 		}
 		else {
-			return "Error.";
+			return "an Error.  Try again.";
 		}
 	}
 
@@ -55,14 +47,14 @@ public class BabysitterStart {
 			return startMin.toString();
 		}
 		else {
-			return "Error.";
+			return "an Error.  Try again.";
 		}
 	}
 
 	public static String BabysitterEndingHour(Integer endPMAM, Integer endHour) {
 		if(endPMAM == ZERO && endHour >= ZERO && endHour <= ELEVEN) { // 0 in PM is noon.
 			if((ENDPM + endHour) < FIVE) {	
-				return "You cannot end babysitting during this time.";
+				return "an Error.  Try again.";
 			}
 			else {
 				endHour += ENDPM;
@@ -71,7 +63,7 @@ public class BabysitterStart {
 		}
 		else if(endPMAM == ONE && endHour >= ZERO && endHour <= ELEVEN) { // 0 in AM is midnight.
 			if((ENDAM + endHour) > SIXTEEN) {
-				return "You cannot end babysitting during this time.";
+				return "an Error.  Try again.";
 			}
 			else{
 				endHour += ENDAM;
@@ -79,7 +71,7 @@ public class BabysitterStart {
 			}
 		}
 		else {
-			return "Error.";
+			return "an Error.  Try again.";
 		}
 	}
 
@@ -88,19 +80,24 @@ public class BabysitterStart {
 			return endMinute.toString();
 		}
 		else {
-			return "Error.";
+			return "an Error.  Try again.";
 		}
 	}
 
-	public static String BabysitterTotalMinutesBabysitting(Integer startHour, Integer startMinute, Integer endHour, Integer endMinute) {
+	public static String BabysitterTotalMinutesBabysitting(String startingHour, String startingMinute, String endingHour, String endingMinute) {
+		int startHour = Integer.parseInt(startingHour);
+		int startMinute = Integer.parseInt(startingMinute);
+		int endHour = Integer.parseInt(endingHour);
+		int endMinute = Integer.parseInt(endingMinute);
+
 		Integer totalStartMinutes = (startHour * HOUR) + startMinute;
 		Integer totalEndMinutes = (endHour * HOUR) + endMinute;
 		Integer totalMinutes = totalEndMinutes - totalStartMinutes;
 		if(totalEndMinutes <= totalStartMinutes) {
-			return "Error. Babysitting ending time cannot be the same as or before the starting time.";
+			return "an Error.  Try again.";
 		}
 		else if (totalMinutes < HOUR) {
-			return "You must babysit for at least one hour to get paid.";
+			return "an Error.  Try again.";
 		}
 		else {
 			return totalMinutes.toString();
