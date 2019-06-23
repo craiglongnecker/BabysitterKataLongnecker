@@ -77,7 +77,8 @@ public class BabysitterStart {
 
 	public static String BabysitterEndingMinute(Integer endMinute) {
 		if(endMinute >= ZERO && endMinute < HOUR) {
-			return endMinute.toString();
+			String endMin = String.format("%02d", endMinute);
+			return endMin.toString();
 		}
 		else {
 			return "an Error.  Try again.";
